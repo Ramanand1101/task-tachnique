@@ -1,3 +1,7 @@
+Certainly! Here's the updated README file with the additional authentication middleware section:
+
+---
+
 # Task Management API
 
 This repository contains a simple Task Management API built using Node.js, Express, and MongoDB. The API allows users to manage tasks by providing endpoints for creating, retrieving, updating, and deleting tasks.
@@ -54,40 +58,9 @@ Before you begin, ensure you have the following installed on your machine:
    npm start
    ```
 
-   The API will be running at `http://localhost:3001`.
+   The API will be running at `http://localhost:3000`.
 
 ## Interacting with Endpoints
-
-### User Endpoints
-
-#### User Registration
-
-- **Endpoint:** `POST /register`
-- **Request Body:**
-
-  ```json
-  {
-    "username": "exampleuser",
-    "email": "user@example.com",
-    "password": "password123"
-  }
-  ```
-
-  Register a new user with the provided username, email, and password.
-
-#### User Login
-
-- **Endpoint:** `POST /login`
-- **Request Body:**
-
-  ```json
-  {
-    "email": "user@example.com",
-    "password": "password123"
-  }
-  ```
-
-  Authenticate and receive a JSON Web Token (JWT) for accessing protected endpoints.
 
 ### Task Endpoints
 
@@ -139,12 +112,55 @@ Before you begin, ensure you have the following installed on your machine:
 
   Delete a specific task by its ID.
 
-## Rate Limiting
+## Authentication Middleware
 
-The API is rate-limited to prevent abuse. Clients are allowed a maximum of 100 requests per IP address every 15 minutes. If this limit is exceeded, a response with status code 429 (Too Many Requests) will be sent.
+### Authenticating Protected Endpoints
+
+To authenticate protected endpoints, you need to include a JWT token in the Authorization header of your requests. Follow these steps to authenticate:
+
+1. **Obtain a JWT Token**
+
+   Make a POST request to the `/login` endpoint with valid credentials to obtain a JWT token:
+
+   - **Endpoint:** `POST /login`
+   - **Request Body:**
+
+     ```json
+     {
+       "email": "user@example.com",
+       "password": "password123"
+     }
+     ```
+
+     If the credentials are correct, you will receive a JSON response containing the JWT token:
+
+     ```json
+     {
+       "token": "your-jwt-token"
+     }
+     ```
+
+2. **Authenticate Protected Endpoints**
+
+   Include the obtained JWT token in the Authorization header of your requests to access protected endpoints:
+
+   - **Endpoint:** Any protected endpoint (e.g., `/tasks`, `/tasks/:id`)
+   - **Request Headers:**
+
+     ```
+     Authorization: jwt-token
+     ```
+
+     Replace `your-jwt-token` with the token obtained in the previous step.
+
+   If the token is valid, the protected endpoint will respond with the appropriate data. If the token is invalid or expired, you will receive a 401 Unauthorized response.
 
 ## Error Handling
 
 The API handles errors gracefully and returns appropriate HTTP status codes and error messages in case of failures. The responses include clear error messages to assist developers in diagnosing issues.
 
 Feel free to explore the API endpoints using tools like Postman or integrate them into your applications. If you have any questions or encounter issues, please don't hesitate to reach out. Happy coding!
+
+--- 
+
+Please replace `<repository-url>` with the actual URL of your repository. If you have any specific instructions or additional details you want to include in the README, feel free to modify the content accordingly.
