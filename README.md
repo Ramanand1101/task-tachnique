@@ -54,7 +54,7 @@ Before you begin, ensure you have the following installed on your machine:
    npm start
    ```
 
-   The API will be running at `http://localhost:3000`.
+   The API will be running at `http://localhost:3001`.
 
 ## Interacting with Endpoints
 
