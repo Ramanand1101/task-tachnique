@@ -47,7 +47,7 @@ Before you begin, ensure you have the following installed on your machine:
    Start your MongoDB server using the following command:
 
    ```bash
-   mongod
+   mongodb
    ```
 
 5. **Run the API:**
