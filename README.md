@@ -1,6 +1,3 @@
-
----
-
 # Task Management API
 
 This repository contains a simple Task Management API built using Node.js, Express, and MongoDB. The API allows users to manage tasks by providing endpoints for creating, retrieving, updating, and deleting tasks.
