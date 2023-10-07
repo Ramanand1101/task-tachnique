@@ -35,7 +35,7 @@ Before you begin, ensure you have the following installed on your machine:
    Create a `.env` file in the project root and add the following environment variables:
 
    ```env
-   PORT=3000
+   PORT=3001
    MONGODB_URI=mongodb://localhost:27017/taskmanagement
    SECRET_KEY=mysecretkey
    ```
@@ -58,7 +58,7 @@ Before you begin, ensure you have the following installed on your machine:
    npm start
    ```
 
-   The API will be running at `http://localhost:3000`.
+   The API will be running at `http://localhost:3001`.
 
 ## Interacting with Endpoints
 
