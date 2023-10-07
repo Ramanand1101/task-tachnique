@@ -1,4 +1,3 @@
-Certainly! Here's the updated README file with the additional authentication middleware section:
 
 ---
 
